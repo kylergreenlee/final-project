@@ -8,6 +8,30 @@ import javafx.scene.control.TextArea;
 
 public class GameController {
     @FXML
+    public Button previousGame;
+    @FXML
+    public Button nextGame;
+    @FXML
+    public Button attemptTeam1;
+    @FXML
+    public Button attemptTeam2;
+    @FXML
+    public Button killTeam1;
+    @FXML
+    Button killTeam2;
+    @FXML
+    public Button errorTeam1;
+    @FXML
+    public Button errorTeam2;
+    @FXML
+    public TextArea team1SetHP;
+    @FXML
+    public TextArea team2SetHP;
+    @FXML
+    public TextArea team1GameHP;
+    @FXML
+    public TextArea team2GameHP;
+    @FXML
     public Button addScore1;
     @FXML
     public Button addScore2;
@@ -49,6 +73,10 @@ public class GameController {
             movement = new Movement();
             movement.start();
             updateViews();
+        }
+        @FXML
+        public void addAttemptTeam1(){
+        
         }
 
         @FXML
