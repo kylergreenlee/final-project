@@ -44,8 +44,12 @@ public class GameController {
     @FXML
     public BorderPane borderPane;
     private Game game;
+    private Teams home;
+    private Teams visitor;
     private GameView gameView;
     private Movement movement;
+    private Stats homeStats;
+    private Stats visitorStats;
 
     private class Movement extends AnimationTimer {
 
@@ -68,15 +72,15 @@ public class GameController {
         @FXML
         public void initialize() {
             game = new Game();
+            home = new Teams();
+            visitor = new Teams();
+            homeStats = new Stats();
+            visitorStats = new Stats();
             gameView = new GameView(1, 1,game);
             borderPane.getChildren().add(gameView);
             movement = new Movement();
             movement.start();
             updateViews();
-        }
-        @FXML
-        public void addAttemptTeam1(){
-        
         }
 
         @FXML
@@ -98,6 +102,13 @@ public class GameController {
                 movement.start();
                 gameView.increaseSets2(33);
             }
+        }
+
+        @FXML
+        public void homeAddKill(){
+        home.addKill();
+        team1SetHP.setText("" + homeStats.setHP());
+        team1GameHP.setText("" + homeStats.gameHP());
         }
 
         @FXML
@@ -124,6 +135,7 @@ public class GameController {
         public void setNewGame(){
             gameView.NewGame();
             game.NewGame();
+
             movement.stop();
             updateViews();
         }
